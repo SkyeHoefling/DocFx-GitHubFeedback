@@ -4,5 +4,7 @@
     {
         string AccessToken { get; }
         string UserAgent { get; }
+        string Organization { get; }
+        string Repository { get; }
     }
 }

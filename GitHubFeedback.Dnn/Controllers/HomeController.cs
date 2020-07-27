@@ -3,7 +3,7 @@ using System.Net.Http;
 using System.Text;
 using System.Web.Http;
 
-namespace Dnn.GitHubFeedback.Controllers
+namespace GitHubFeedback.Dnn.Controllers
 {
     public class HomeController : DnnApiController
     {

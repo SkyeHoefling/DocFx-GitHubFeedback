@@ -6,7 +6,7 @@ using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using System.Web.Http;
 
-namespace Dnn.GitHubFeedback.Controllers
+namespace GitHubFeedback.Dnn.Controllers
 {
     public class IssuesController : DnnApiController
     {
@@ -22,17 +22,22 @@ namespace Dnn.GitHubFeedback.Controllers
         [HttpGet]
         public async Task<HttpResponseMessage> List(int page, int pageSize)
         {
+
             using (var client = new HttpClient())
             {
                 client.BaseAddress = new Uri(BaseAddress);
-                var request = new HttpRequestMessage(HttpMethod.Get, string.Format(RepositoryIssues, "FileOnQ", "Wiki"));
-                request.Headers.Authorization = new AuthenticationHeaderValue("token", Settings.AccessToken);
-                request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/vnd.github.v3+json"));
-
-                request.Headers.Add("User-Agent", Settings.UserAgent); 
+                var request = new HttpRequestMessage(HttpMethod.Get, string.Format(RepositoryIssues, Settings.Organization, Settings.Repository));
+                AddHeaders(request);
 
                 return await client.SendAsync(request);
             }
+        }
+
+        void AddHeaders(HttpRequestMessage request)
+        {
+            request.Headers.Authorization = new AuthenticationHeaderValue("token", Settings.AccessToken);
+            request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/vnd.github.v3+json"));
+            request.Headers.Add("User-Agent", Settings.UserAgent);
         }
     }
 }

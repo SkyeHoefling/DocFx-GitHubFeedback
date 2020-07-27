@@ -2,7 +2,7 @@
 using GitHubFeedback.Core;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Dnn.GitHubFeedback
+namespace GitHubFeedback.Dnn
 {
     public class Startup : IDnnStartup
     {

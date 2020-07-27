@@ -50,9 +50,9 @@ Task("DnnDeploy")
     .Does(() =>
 {
     // Copy Dnn Files
-    CopyFiles($"Dnn.*/**/bin/{configuration}/**/*.dll", $"{dnnServerPath}/bin");
+    CopyFiles($"GitHubFeedback.Dnn/**/bin/{configuration}/**/*.dll", $"{dnnServerPath}/bin");
     if (configuration.ToLower() == "debug")
-        CopyFiles($"Dnn.*/**/bin/{configuration}/**/*.pdb", $"{dnnServerPath}/bin");
+        CopyFiles($"GitHubFeedback.Dnn/**/bin/{configuration}/**/*.pdb", $"{dnnServerPath}/bin");
 
 });
 
