@@ -1,4 +1,5 @@
 ﻿using DotNetNuke.Web.Api;
+using GitHubFeedback.Core;
 using System;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -11,7 +12,12 @@ namespace Dnn.GitHubFeedback.Controllers
     {
         const string RepositoryIssues = "/repos/{0}/{1}/issues";
         const string BaseAddress = "https://api.github.com";
-        const string AuthorizationToken = "***";
+
+        protected IGitHubSettings Settings { get; }
+        public IssuesController(IGitHubSettings settings)
+        {
+            Settings = settings;
+        }
 
         [HttpGet]
         public async Task<HttpResponseMessage> List(int page, int pageSize)
@@ -20,10 +26,10 @@ namespace Dnn.GitHubFeedback.Controllers
             {
                 client.BaseAddress = new Uri(BaseAddress);
                 var request = new HttpRequestMessage(HttpMethod.Get, string.Format(RepositoryIssues, "FileOnQ", "Wiki"));
-                request.Headers.Authorization = new AuthenticationHeaderValue("token", AuthorizationToken);
+                request.Headers.Authorization = new AuthenticationHeaderValue("token", Settings.AccessToken);
                 request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/vnd.github.v3+json"));
 
-                request.Headers.Add("User-Agent", "ahoefling"); //https://docs.github.com/en/rest/overview/resources-in-the-rest-api#user-agent-required
+                request.Headers.Add("User-Agent", Settings.UserAgent); 
 
                 return await client.SendAsync(request);
             }

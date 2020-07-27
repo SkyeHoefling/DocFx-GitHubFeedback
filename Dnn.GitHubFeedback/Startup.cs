@@ -1,6 +1,6 @@
 ﻿using DotNetNuke.DependencyInjection;
+using GitHubFeedback.Core;
 using Microsoft.Extensions.DependencyInjection;
-using System;
 
 namespace Dnn.GitHubFeedback
 {
@@ -8,7 +8,7 @@ namespace Dnn.GitHubFeedback
     {
         public void ConfigureServices(IServiceCollection services)
         {
-            // TODO - Register dependencies
+            services.AddSingleton<IGitHubSettings, DnnGitHubSettings>();
         }
     }
 }
