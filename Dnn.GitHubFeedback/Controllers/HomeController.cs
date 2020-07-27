@@ -10,7 +10,7 @@ namespace Dnn.GitHubFeedback.Controllers
         [HttpGet]
         public HttpResponseMessage Ping()
         {
-            var jsonContent = new StringContent("pong", Encoding.UTF8, "application/json");
+            var jsonContent = new StringContent("pong-test", Encoding.UTF8, "application/json");
             return new HttpResponseMessage(System.Net.HttpStatusCode.OK) { Content = jsonContent };
         }
     }

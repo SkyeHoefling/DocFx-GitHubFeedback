@@ -7,7 +7,7 @@
 
 var target = Argument("target", "Default");
 var configuration = Argument("configuration", "Release");
-var dnnServerPath = Argument("dnn-server-path", string.Empty);
+var dnnServerPath = Argument("dnnServerPath", string.Empty);
 var solution = Argument("solution-file", "docfx-feedback.sln");
 
 //////////////////////////////////////////////////////////////////////
@@ -38,11 +38,15 @@ Task("Build")
     DotNetCoreBuild(solution, settings);
 });
 
-Task("Deploy")
+Task("DnnDeploy")
     .IsDependentOn("Build")
     .Does(() =>
 {
-    
+    // Copy Dnn Files
+    CopyFiles($"Dnn.*/**/bin/{configuration}/**/*.dll", $"{dnnServerPath}/bin");
+    if (configuration.ToLower() == "debug")
+        CopyFiles($"Dnn.*/**/bin/{configuration}/**/*.pdb", $"{dnnServerPath}/bin");
+
 });
 
 //////////////////////////////////////////////////////////////////////
