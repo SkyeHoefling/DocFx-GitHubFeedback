@@ -16,7 +16,7 @@ namespace Dnn.GitHubFeedback
             AccessToken = PortalController.GetEncryptedString(Setting_AccessToken, 0, passPhrase);
             if (string.IsNullOrEmpty(AccessToken))
             {
-                var accessToken = "5216084aa40eb2063b414f8e2c8ccf19f42cfc19";
+                var accessToken = "";
                 PortalController.UpdateEncryptedString(0, Setting_AccessToken, accessToken, passPhrase);
                 AccessToken = accessToken;
             }
@@ -25,7 +25,7 @@ namespace Dnn.GitHubFeedback
             UserAgent = PortalController.GetEncryptedString(Setting_UserAgent, 0, passPhrase);
             if (string.IsNullOrEmpty(UserAgent))
             {
-                var userAgent = "ahoefling";
+                var userAgent = "";
                 PortalController.UpdateEncryptedString(0, Setting_UserAgent, userAgent, passPhrase);
                 UserAgent = userAgent;
             }
