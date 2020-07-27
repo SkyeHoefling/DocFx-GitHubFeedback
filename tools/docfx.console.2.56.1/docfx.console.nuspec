@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>docfx.console</id>
+    <version>2.56.1</version>
+    <title>docfx.console</title>
+    <authors>Microsoft</authors>
+    <owners>Microsoft</owners>
+    <developmentDependency>true</developmentDependency>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <licenseUrl>https://github.com/dotnet/docfx/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/dotnet/docfx</projectUrl>
+    <description>This is a tool to generate API documentation for .NET projects.</description>
+    <releaseNotes>Support generating both CSHARP and VB projects.</releaseNotes>
+    <copyright>© Microsoft Corporation. All rights reserved.</copyright>
+    <tags>Documentation API Metadata docascode docfx</tags>
+  </metadata>
+</package>

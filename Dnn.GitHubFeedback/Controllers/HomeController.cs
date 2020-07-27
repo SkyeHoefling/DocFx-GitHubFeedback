@@ -8,7 +8,6 @@ namespace Dnn.GitHubFeedback.Controllers
     public class HomeController : DnnApiController
     {
         [HttpGet]
-        [AllowAnonymous]
         public HttpResponseMessage Ping()
         {
             var jsonContent = new StringContent("pong", Encoding.UTF8, "application/json");
