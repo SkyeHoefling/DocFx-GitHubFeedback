@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net472</TargetFramework>
+    <Authors>Andrew Hoefling</Authors>
+    <Company>Andrew Hoefling</Company>
+    <Product>GitHub Feedback for Dnn</Product>
+    <Description>A GitHub issue feedback system built for Dnn.</Description>
+    <Copyright>Andrew Hoefling © 2019-2020</Copyright>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>1.0.0.0</FileVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DotNetNuke.Core" Version="9.4.1" />
+    <PackageReference Include="DotNetNuke.DependencyInjection" Version="9.4.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="System.Web" />
+  </ItemGroup>
+
+</Project>
