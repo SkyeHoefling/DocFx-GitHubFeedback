@@ -12,7 +12,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="DotNetNuke.Core" Version="9.4.1" />
+    <PackageReference Include="DotNetNuke.Core" Version="9.11.0" />
     <PackageReference Include="DotNetNuke.DependencyInjection" Version="9.4.1" />
     <PackageReference Include="DotNetNuke.WebApi" Version="9.4.1" />
   </ItemGroup>
